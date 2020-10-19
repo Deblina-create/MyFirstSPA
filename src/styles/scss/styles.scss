@@ -1,0 +1,261 @@
+@import "mixins";
+
+* {font-family: 'Roboto', Arial, sans-serif  }
+
+body {
+    margin: 0;
+   
+  }
+  
+  a {
+    color: #000;
+  }
+  
+  /* header */
+  header{
+    background: url(../assets/negative-space-black-forest-dawn.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    .firstwriteup{
+        z-index: 3;
+        text-align: center;
+        color: white;
+        margin: 5rem;
+        margin-top: 15rem;
+        a{
+            color: white;
+        }
+    }
+
+  }
+
+  .header{
+      .menu-btn{
+        display: none;
+      }
+      nav{
+        overflow: hidden;
+        background-color:rgba(0, 0, 0, 0.1);
+        .menu {
+            margin: 20px;
+            float: right;
+            transition: max-height .2s ease-out;
+            a{
+              
+                padding: 5px;
+                font-size: 14px;
+                color: white;
+                text-align: center;
+                text-decoration: none;
+                margin-top: 10px;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+            @include mQ(600px){
+                
+                a{
+                    display: none;
+                    &:hover{
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+      }
+      @include mQ(600px){
+        nav{
+            background-color:rgba(0, 0, 0, 0);
+        }
+
+
+      }
+      .menu-icon {
+        cursor: pointer;
+        float: right;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+        transition:  .3s ease-out;
+        transform: rotateY(0deg);
+        .nav-icon {
+            background: white;
+            display: block;
+            height: 3px;
+            position: relative;
+            width: 18px;
+            
+            &:before {
+                background: white;
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                top: 5px;
+              }
+              &:after {
+                background: white;
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                width: 100%;
+                top: -5px;
+              }
+          }
+      }
+  }
+
+  
+ @include mQ(600px){
+  .header .menu-btn:checked ~ nav {
+    width: 100%;
+    top:0px;
+    left:0px;
+    background-color:rgba(0, 0, 0, 0.1);
+  }
+  .header .menu-btn:checked ~ nav .menu {
+    float: none;
+  }
+  .header .menu-btn:checked ~ nav .menu a {
+    display: block;
+    text-align: center;
+  }
+  
+   .header .menu-btn:checked ~ .menu-icon  {
+       transform: rotateY(180deg);
+   }
+ 
+  .header .menu-btn:checked ~ .menu-icon .nav-icon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .nav-icon:before {
+    transform: rotate(45deg);
+    top:0;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .nav-icon:after {
+    transform: rotate(-45deg);
+    top:0;
+  }
+  .header .menu-btn:checked ~ section.firstwriteup{
+    margin-top: 7rem;
+  }
+  
+}
+  
+  @media (min-width: 600px) {
+  
+    .header {
+        .menu-icon {
+            display: none;
+        }
+    }
+  }
+   
+   // main
+
+   .profileHeading{
+       text-align: center;
+   }
+   #profiles{
+       p{
+           &:last-child{
+               text-align: center;
+           }
+       }
+   }
+    .container{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    
+    @include mQ(600px){
+       
+       flex-direction: column;
+    
+      }    
+    .box{
+        flex-basis: 30%;
+        text-align: center;
+
+    
+        .circle{
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0px 0px 10px 6px lightgray;
+         
+        }
+        
+        .desc{
+            background-color: lightgray;
+            width: 70%;
+            margin-top: 20px;
+            margin-left: 10%;
+            border-radius: 4px;
+            padding-left: 20px; 
+            padding-right: 20px;
+            padding-bottom: 30px;
+            font-size: 0.7rem;
+            text-align:center;
+            .big-qoute{
+                font-size: 2rem;
+                font-weight: bold;
+                font-family: 'Oswald';
+                vertical-align: text-bottom;
+               
+            }
+        }
+       
+    }
+  
+}
+// footer
+.footerStyle{
+    background-color: black;
+    color: white;
+    margin-top: 50px;
+    
+    
+    .footerBox{
+        padding: 5% 5%;
+        //background-color: black;
+        list-style-type: none;
+        width: 70%;
+        margin: 0;
+        li{
+            padding-bottom: 10px;
+            i{
+                padding-right: 10px;
+            }
+        }
+       
+       
+       
+    }
+    @include mQ(600px){
+        .footerBox{
+            padding-right: 25%;
+            padding-left: 25%;
+            padding-top: 5%;
+           
+            &:last-child{
+                    padding-bottom: 10%;
+            }
+            &:first-child{
+                    padding-top: 10%;
+            }
+        }
+        
+    }
+}
